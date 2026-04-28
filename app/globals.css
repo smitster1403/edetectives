@@ -1,26 +1,217 @@
 @import "tailwindcss";
 
+/* ─── Design tokens ────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Backgrounds — soft cloud white / fintech light */
+  --bg-page:       #F7F9FC;      /* soft cloud white                      */
+  --bg-subtle:     #EFF3F7;      /* panel / section background            */
+  --bg-muted:      #E0F7FA;      /* subtle cyan highlight cells           */
+
+  /* Borders — cool neutral */
+  --border:        #D9E1E8;      /* standard divider                      */
+  --border-strong: #B0C0CF;      /* hover / emphasis                      */
+
+  /* Text — blue-gray hierarchy */
+  --text-heading:  #2F3E4E;      /* muted dark blue-gray                  */
+  --text-body:     #3D4F5F;      /* readable body copy                    */
+  --text-muted:    #8A99A8;      /* secondary / field labels              */
+  --text-faint:    #B8C8D5;      /* placeholders                          */
+
+  /* Brand blue — structure & hierarchy (headers, navbars) */
+  --accent:        #3A5A7A;      /* calm professional blue                */
+  --accent-mid:    #2F4A67;      /* darker hover state                    */
+  --accent-soft:   #E8EFF5;      /* very light blue tint                  */
+  --accent-border: #B8CEDF;      /* blue-tinted border                    */
+
+  /* Teal — interactive emphasis only (buttons, links, hover) */
+  --teal:          #2CB1BC;      /* modern teal CTA                       */
+  --teal-mid:      #239AA5;      /* teal hover                            */
+  --teal-soft:     #E0F7FA;      /* very light cyan background            */
+
+  /* Status colors (used sparingly) */
+  --status-success: #4CAF50;
+  --status-warning: #F4B740;
+  --status-error:   #E76F51;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ─── Base ────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-site { background: var(--bg-page); }
+
+/* ─── Layout ─────────────────────────────────────────────────────────── */
+.page-shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+}
+
+.section-space { padding-block: 2.5rem; }
+
+@media (min-width: 768px) {
+  .section-space { padding-block: 4.5rem; }
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────── */
+.section-title {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(1.75rem, 2.8vw, 3rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--text-heading);
+}
+
+.headline-balance { text-wrap: balance; }
+
+/* ─── Data label — mono all-caps field label ─────────────────────────── */
+.data-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ─── Kicker — inline mono identifier, no background pill ───────────── */
+.kicker {
+  display: inline-block;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.63rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* ─── Rule line — solid 1px hairline separator ───────────────────────── */
+.rule-line {
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── Card surface ───────────────────────────────────────────────────── */
+.card-surface {
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(58, 90, 122, 0.06);
+}
+
+/* ─── Tile (interactive grid cell) ──────────────────────────────────── */
+.tile {
+  transition:
+    background-color 140ms ease,
+    border-color     140ms ease;
+}
+
+.tile:hover {
+  background-color: var(--teal-soft);
+  border-color: var(--teal);
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────── */
+
+/* Primary: teal fill, white text — interactive emphasis */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.35rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--teal);
+  color: #ffffff;
+  border: 1px solid var(--teal);
+  transition: background 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0 2px 8px rgba(44, 177, 188, 0.25);
+}
+.btn-primary:hover {
+  background: var(--teal-mid);
+  border-color: var(--teal-mid);
+  box-shadow: 0 4px 14px rgba(44, 177, 188, 0.35);
+}
+
+/* Outline: transparent bg, blue border */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.35rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+.btn-outline:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-mid);
+  color: var(--accent-mid);
+}
+/* For use on dark/video backgrounds — keeps text white on hover */
+.btn-outline-light {
+  color: #fff;
+  border-color: rgba(255,255,255,0.45);
+}
+.btn-outline-light:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.75);
+  color: #fff;
+}
+
+/* ─── Form element focus ─────────────────────────────────────────────── */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: -1px;
+}
+
+/* ─── Subtle band — tonal section background ─────────────────────────── */
+.subtle-band {
+  background: var(--teal-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── Data panel row ─────────────────────────────────────────────────── */
+.data-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 1.5rem;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid var(--border);
+}
+.data-row:last-child { border-bottom: none; }
+
+@media (max-width: 480px) {
+  .data-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    padding-block: 0.75rem;
+  }
 }
