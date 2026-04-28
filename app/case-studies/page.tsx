@@ -22,7 +22,7 @@ export default function CaseStudiesPage() {
           {caseStudies.map((study) => (
             <article key={study.slug} className="card-surface tile p-7" style={{ border: "1px solid var(--border)" }}>
               <h2 className="text-base font-bold" style={{ color: "var(--text-heading)" }}>{study.title}</h2>
-              <div className="mt-5 space-y-0 text-sm leading-7">
+              <div className="mt-5 space-y-0 text-base leading-7">
                 {[
                   { label: "Challenge", value: study.challenge },
                   { label: "Our Role", value: study.role },

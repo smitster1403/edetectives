@@ -23,11 +23,10 @@ export default function IndustriesPage() {
           {industries.map((industry) => (
             <article key={industry.slug} className="card-surface tile p-6" style={{ border: "1px solid var(--border)" }}>
               <h2 className="text-base font-bold" style={{ color: "var(--text-heading)" }}>{industry.name}</h2>
-              <p className="mt-3 text-sm leading-7" style={{ color: "var(--text-muted)" }}>Focused risk and assurance support.</p>
+              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>Focused risk and assurance support.</p>
               <Link
                 href={`/industries/${industry.slug}`}
-                className="mt-4 inline-block font-mono text-[0.65rem] tracking-[0.12em] uppercase transition"
-                style={{ color: "var(--teal)" }}
+                className="mt-5 btn-ghost"
               >
                 View Sector →
               </Link>

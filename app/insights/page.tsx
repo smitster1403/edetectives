@@ -24,11 +24,10 @@ export default function InsightsPage() {
             <article key={post.slug} className="card-surface tile flex flex-col p-6" style={{ border: "1px solid var(--border)" }}>
               <p className="data-label">{post.category}</p>
               <h2 className="mt-3 text-base font-bold" style={{ color: "var(--text-heading)" }}>{post.title}</h2>
-              <p className="mt-3 flex-1 text-sm leading-7" style={{ color: "var(--text-muted)" }}>{post.summary}</p>
+              <p className="mt-3 flex-1 text-base leading-7" style={{ color: "var(--text-muted)" }}>{post.summary}</p>
               <Link
                 href={`/insights/${post.slug}`}
-                className="mt-4 inline-block font-mono text-[0.65rem] tracking-[0.12em] uppercase transition"
-                style={{ color: "var(--teal)" }}
+                className="mt-5 btn-ghost"
               >
                 Read Article →
               </Link>

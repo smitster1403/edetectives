@@ -421,13 +421,31 @@ export const insights: Insight[] = [
   },
 ];
 
-export const navItems = [
+export type NavItem = {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+};
+
+export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
+  {
+    label: "Services",
+    href: "/services",
+    children: services.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
+  },
   { label: "Solutions", href: "/solutions" },
-  { label: "Industries", href: "/industries" },
+  {
+    label: "Industries",
+    href: "/industries",
+    children: industries.map((i) => ({ label: i.name, href: `/industries/${i.slug}` })),
+  },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Insights", href: "/insights" },
+  {
+    label: "Insights",
+    href: "/insights",
+    children: insights.map((p) => ({ label: p.title, href: `/insights/${p.slug}` })),
+  },
   { label: "Contact", href: "/contact" },
 ];

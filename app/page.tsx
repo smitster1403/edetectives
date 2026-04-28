@@ -87,7 +87,7 @@ export default function Home() {
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}`}
-                    className="group flex items-center gap-3 py-2.5 px-2 -mx-2 rounded-sm transition-all duration-200 hover:bg-white/10"
+                    className="group flex items-center gap-3 py-2.5 px-2 -mx-2 transition-all duration-200 hover:bg-white/10"
                     style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}
                   >
                     <span
@@ -200,8 +200,7 @@ export default function Home() {
           </div>
           <Link
             href="/industries"
-            className="hidden shrink-0 font-mono text-[0.66rem] tracking-[0.14em] uppercase transition md:block"
-            style={{ color: "var(--teal)" }}
+            className="hidden shrink-0 btn-ghost md:inline-flex"
           >
             All Sectors →
           </Link>
@@ -264,7 +263,7 @@ export default function Home() {
                 <p className="font-mono text-[0.68rem] tracking-[0.1em] uppercase" style={{ color: "var(--teal)" }}>
                   {solution.tagline}
                 </p>
-                <p className="text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+                <p className="text-base leading-7" style={{ color: "var(--text-muted)" }}>
                   {solution.description}
                 </p>
               </article>
@@ -316,7 +315,7 @@ export default function Home() {
                   {heading}
                 </h3>
                 <p
-                  className="mt-2 text-sm leading-7"
+                  className="mt-2 text-base leading-7"
                   style={{ color: "var(--text-muted)" }}
                 >
                   {body}

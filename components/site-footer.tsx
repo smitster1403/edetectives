@@ -34,7 +34,7 @@ export function SiteFooter() {
                 <p className="data-label mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>Corporate Risk · Intelligence</p>
               </div>
             </div>
-            <p className="mt-5 text-sm leading-7" style={{ color: "rgba(255,255,255,0.65)" }}>
+            <p className="mt-5 text-base leading-7" style={{ color: "rgba(255,255,255,0.65)" }}>
               Discreet, evidence-driven investigations, intelligence gathering,
               digital forensics, cybersecurity, and security operations support
               for organisations managing sensitive risk.

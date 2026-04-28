@@ -23,7 +23,7 @@ export default function SolutionsPage() {
             <article key={solution.slug} className="card-surface tile p-6" style={{ border: "1px solid var(--border)" }}>
               <h2 className="font-mono text-sm font-semibold tracking-wide" style={{ color: "var(--text-heading)" }}>{solution.name}</h2>
               <p className="mt-2 font-mono text-[0.65rem] tracking-[0.1em] uppercase" style={{ color: "var(--accent)" }}>{solution.tagline}</p>
-              <p className="mt-3 text-sm leading-7" style={{ color: "var(--text-muted)" }}>{solution.description}</p>
+              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{solution.description}</p>
               <p className="mt-4 data-label">{solution.linkedService}</p>
             </article>
           ))}

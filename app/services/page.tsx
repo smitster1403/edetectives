@@ -23,11 +23,10 @@ export default function ServicesOverviewPage() {
           {services.map((service) => (
             <article key={service.slug} className="card-surface tile p-6" style={{ border: "1px solid var(--border)" }}>
               <h2 className="text-base font-bold" style={{ color: "var(--text-heading)" }}>{service.title}</h2>
-              <p className="mt-3 text-sm leading-7" style={{ color: "var(--text-muted)" }}>{service.short}</p>
+              <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>{service.short}</p>
               <Link
                 href={`/services/${service.slug}`}
-                className="mt-4 inline-block font-mono text-[0.65rem] tracking-[0.12em] uppercase transition"
-                style={{ color: "var(--teal)" }}
+                className="mt-5 btn-ghost"
               >
                 View Service →
               </Link>

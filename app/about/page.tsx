@@ -29,12 +29,12 @@ export default function AboutPage() {
         <div className="grid gap-0 lg:grid-cols-[1.2fr_1fr]" style={{ border: "1px solid var(--border)" }}>
           <article className="card-surface tile p-7" style={{ border: "1px solid var(--border)" }}>
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Mission</h2>
-            <p className="mt-3 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+            <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               To help organisations uncover truth, protect digital assets, and manage
               sensitive risk matters with confidence, discretion, and professional rigor.
             </p>
             <h2 className="mt-8 text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Vision</h2>
-            <p className="mt-3 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+            <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               To be the region&apos;s most trusted specialist partner for investigations,
               digital forensics, cybersecurity, and risk-informed decision support.
             </p>
@@ -42,7 +42,7 @@ export default function AboutPage() {
 
           <article className="card-surface tile p-7" style={{ border: "1px solid var(--border)" }}>
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Core Values</h2>
-            <ul className="mt-4 space-y-0 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+            <ul className="mt-4 space-y-0 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               {values.map((value) => (
                 <li key={value} className="px-4 py-3" style={{ borderBottom: "1px solid var(--border)" }}>
                   {value}
@@ -69,7 +69,7 @@ export default function AboutPage() {
       <section className="section-space page-shell pt-0">
         <article className="card-surface tile p-7">
           <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Leadership Snapshot</h2>
-          <p className="mt-3 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+          <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
             E-Detectives operates with a multidisciplinary model spanning investigations,
             forensic analysis, cybersecurity response, and governance support. Leadership
             profiles, credentials, and full biographies are prepared for CMS-managed

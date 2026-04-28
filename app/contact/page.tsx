@@ -127,7 +127,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
           <aside className="card-surface p-7">
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Direct Contact</h2>
-            <ul className="mt-5 space-y-3 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+            <ul className="mt-5 space-y-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               <li>
                 Phone: <a href={contact.phoneHref} style={{ color: "var(--teal)" }}>{contact.phoneDisplay}</a>
               </li>

@@ -43,7 +43,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         <div className="grid gap-6 lg:grid-cols-2">
           <article className="card-surface p-7">
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Common Sector Challenges</h2>
-            <ul className="mt-4 space-y-0 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+            <ul className="mt-4 space-y-0 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               {industry.painPoints.map((item) => (
                 <li key={item} className="px-4 py-3" style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-subtle)" }}>
                   {item}
@@ -54,7 +54,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
           <article className="card-surface p-7">
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>How E-Detectives Helps</h2>
-            <ul className="mt-4 space-y-0 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+            <ul className="mt-4 space-y-0 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               {industry.support.map((item) => (
                 <li key={item} className="px-4 py-3" style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-subtle)" }}>
                   {item}

@@ -5,14 +5,46 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navItems } from "@/lib/site-content";
 
+/* ── Chevron icon ─────────────────────────────────────────────────────── */
+function ChevronIcon({ open }: { open?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 12 12"
+      fill="none"
+      aria-hidden="true"
+      width={11}
+      height={11}
+      style={{
+        transition: "transform 200ms ease",
+        transform: open ? "rotate(180deg)" : "none",
+        flexShrink: 0,
+      }}
+    >
+      <path
+        d="M2 4l4 4 4-4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function SiteHeader() {
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const pathname = usePathname();
 
-  // Close menu on route change
+  // Close all menus on route change
   useEffect(() => {
-    setOpen(false);
+    setMobileOpen(false);
+    setOpenSubmenu(null);
   }, [pathname]);
+
+  function toggleSubmenu(href: string) {
+    setOpenSubmenu((prev) => (prev === href ? null : href));
+  }
 
   return (
     <header className="sticky top-0 z-40" style={{ background: "var(--accent)", borderBottom: "1px solid var(--accent-mid)" }}>
@@ -42,40 +74,99 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav aria-label="Main navigation" className="hidden lg:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="border-r px-5 py-3.5 text-[0.75rem] font-semibold transition hover:bg-white/10"
-              style={{
-                borderColor: "rgba(255,255,255,0.15)",
-                color: "rgba(255,255,255,0.8)",
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.children ? (
+              /* ── Dropdown nav item ──────────────────────────────── */
+              <div key={item.href} className="group relative">
+                {/* Clicking the label navigates to /services; hovering shows the dropdown */}
+                <Link
+                  href={item.href}
+                  className="flex items-center gap-1.5 border-r px-5 py-3.5 text-[0.75rem] font-semibold transition hover:bg-white/10"
+                  style={{ borderColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)" }}
+                >
+                  {item.label}
+                </Link>
+
+                {/* Dropdown panel — flush to nav bottom, seamless */}
+                <div
+                  className="pointer-events-none invisible absolute left-0 top-full z-50 translate-y-1 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
+                  style={{ minWidth: "17rem" }}
+                >
+                  {/* Panel */}
+                  <div
+                    style={{
+                      background: "#ffffff",
+                      borderTop: "2px solid var(--teal)",
+                      borderLeft: "1px solid var(--border)",
+                      borderRight: "1px solid var(--border)",
+                      borderBottom: "1px solid var(--border)",
+                      boxShadow: "0 12px 32px rgba(30,46,61,0.14)",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className="flex items-center gap-3 px-4 py-3 text-[0.82rem] font-medium transition hover:bg-[var(--accent-soft)]"
+                        style={{ color: "var(--text-heading)", borderBottom: "1px solid var(--border)" }}
+                      >
+                        <span
+                          className="h-1.5 w-1.5 shrink-0"
+                          style={{ background: "var(--teal)" }}
+                        />
+                        {child.label}
+                      </Link>
+                    ))}
+                    {/* Footer: View All */}
+                    <Link
+                      href={item.href}
+                      className="flex items-center justify-between px-4 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.1em] transition hover:bg-[var(--teal-soft)]"
+                      style={{
+                        color: "var(--teal)",
+                        fontFamily: "var(--font-mono)",
+                        background: "var(--accent-soft)",
+                      }}
+                    >
+                      View All {item.label}
+                      <span aria-hidden="true" className="text-base leading-none">→</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              /* ── Regular nav link ───────────────────────────────── */
+              <Link
+                key={item.href}
+                href={item.href}
+                className="border-r px-5 py-3.5 text-[0.75rem] font-semibold transition hover:bg-white/10"
+                style={{ borderColor: "rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.8)" }}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
 
         {/* Hamburger toggle — mobile only */}
         <button
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-[5px] shrink-0 rounded-sm transition-colors hover:bg-white/10"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          className="lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-[5px] shrink-0 transition-colors hover:bg-white/10"
         >
           <span
-            className="block h-[1.5px] w-5 rounded-full bg-white transition-all duration-300"
-            style={{ transform: open ? "translateY(6.5px) rotate(45deg)" : "none" }}
+            className="block h-[1.5px] w-5 bg-white transition-all duration-300"
+            style={{ transform: mobileOpen ? "translateY(6.5px) rotate(45deg)" : "none" }}
           />
           <span
-            className="block h-[1.5px] w-5 rounded-full bg-white transition-all duration-300"
-            style={{ opacity: open ? 0 : 1 }}
+            className="block h-[1.5px] w-5 bg-white transition-all duration-300"
+            style={{ opacity: mobileOpen ? 0 : 1 }}
           />
           <span
-            className="block h-[1.5px] w-5 rounded-full bg-white transition-all duration-300"
-            style={{ transform: open ? "translateY(-6.5px) rotate(-45deg)" : "none" }}
+            className="block h-[1.5px] w-5 bg-white transition-all duration-300"
+            style={{ transform: mobileOpen ? "translateY(-6.5px) rotate(-45deg)" : "none" }}
           />
         </button>
       </div>
@@ -85,8 +176,8 @@ export function SiteHeader() {
         id="mobile-menu"
         className="lg:hidden overflow-hidden transition-all duration-300"
         style={{
-          maxHeight: open ? "600px" : "0px",
-          borderTop: open ? "1px solid rgba(255,255,255,0.12)" : "none",
+          maxHeight: mobileOpen ? "900px" : "0px",
+          borderTop: mobileOpen ? "1px solid rgba(255,255,255,0.12)" : "none",
         }}
       >
         <nav
@@ -94,21 +185,91 @@ export function SiteHeader() {
           className="flex flex-col"
           style={{ background: "rgba(0,0,0,0.18)" }}
         >
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="px-6 py-4 text-sm font-semibold transition hover:bg-white/10"
-              style={{
-                color: "rgba(255,255,255,0.85)",
-                borderBottom: "1px solid rgba(255,255,255,0.08)",
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.children ? (
+              /* ── Accordion item ──────────────────────────────── */
+              <div key={item.href}>
+                {/* Row: label + chevron toggle */}
+                <div
+                  className="flex items-stretch"
+                  style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+                >
+                  <Link
+                    href={item.href}
+                    className="flex-1 px-6 py-4 text-sm font-semibold"
+                    style={{ color: "rgba(255,255,255,0.85)" }}
+                  >
+                    {item.label}
+                  </Link>
+                  <button
+                    onClick={() => toggleSubmenu(item.href)}
+                    aria-expanded={openSubmenu === item.href}
+                    aria-label={`Toggle ${item.label} submenu`}
+                    className="flex items-center justify-center px-4 transition hover:bg-white/10"
+                    style={{ borderLeft: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.65)" }}
+                  >
+                    <ChevronIcon open={openSubmenu === item.href} />
+                  </button>
+                </div>
+
+                {/* Sub-items */}
+                <div
+                  className="overflow-hidden transition-all duration-300"
+                  style={{
+                    maxHeight: openSubmenu === item.href ? `${item.children.length * 52 + 52}px` : "0px",
+                    background: "rgba(0,0,0,0.12)",
+                  }}
+                >
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="flex items-center gap-3 py-3.5 pl-10 pr-6 text-sm font-medium transition hover:bg-white/10"
+                      style={{
+                        color: "rgba(255,255,255,0.72)",
+                        borderBottom: "1px solid rgba(255,255,255,0.05)",
+                      }}
+                    >
+                      <span
+                        className="h-1 w-1 shrink-0"
+                        style={{ background: "var(--teal)" }}
+                      />
+                      {child.label}
+                    </Link>
+                  ))}
+                  {/* View All row */}
+                  <Link
+                    href={item.href}
+                    className="flex items-center justify-between py-3.5 pl-10 pr-6 text-[0.72rem] font-semibold uppercase tracking-[0.1em] transition hover:bg-white/10"
+                    style={{
+                      color: "var(--teal)",
+                      fontFamily: "var(--font-mono)",
+                      borderBottom: "1px solid rgba(255,255,255,0.08)",
+                    }}
+                  >
+                    View All {item.label}
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              /* ── Regular mobile link ────────────────────────────── */
+              <Link
+                key={item.href}
+                href={item.href}
+                className="px-6 py-4 text-sm font-semibold transition hover:bg-white/10"
+                style={{
+                  color: "rgba(255,255,255,0.85)",
+                  borderBottom: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
       </div>
     </header>
   );
 }
+

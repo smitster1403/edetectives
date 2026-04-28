@@ -48,7 +48,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <div className="grid gap-6 lg:grid-cols-2">
           <article className="card-surface p-7">
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Typical Deliverables</h2>
-            <ul className="mt-4 space-y-2 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+            <ul className="mt-4 space-y-2 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               {service.deliverables.map((item) => (
                 <li key={item} className="px-4 py-2.5" style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-subtle)" }}>
                   {item}
@@ -59,7 +59,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
           <article className="card-surface p-7">
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Business Outcomes</h2>
-            <ul className="mt-4 space-y-2 text-sm leading-7" style={{ color: "var(--text-muted)" }}>
+            <ul className="mt-4 space-y-2 text-base leading-7" style={{ color: "var(--text-muted)" }}>
               {service.outcomes.map((item) => (
                 <li key={item} className="px-4 py-2.5" style={{ borderBottom: "1px solid var(--border)", background: "var(--bg-subtle)" }}>
                   {item}
