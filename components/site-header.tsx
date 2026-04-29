@@ -47,7 +47,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40" style={{ background: "var(--accent)", borderBottom: "1px solid var(--accent-mid)" }}>
+    <header className="sticky top-0 z-40 w-full" style={{ background: "var(--accent)", borderBottom: "1px solid var(--accent-mid)" }}>
 
       {/* ── Main header row ─────────────────────────────────────────── */}
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
@@ -89,8 +89,12 @@ export function SiteHeader() {
 
                 {/* Dropdown panel — flush to nav bottom, seamless */}
                 <div
-                  className="pointer-events-none invisible absolute left-0 top-full z-50 translate-y-1 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
-                  style={{ minWidth: "17rem" }}
+                  className="pointer-events-none invisible absolute top-full z-[200] translate-y-1 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100"
+                  style={{
+                    minWidth: "17rem",
+                    maxWidth: "24rem",
+                    ...(item.dropdownAlign === "right" ? { right: 0 } : { left: 0 }),
+                  }}
                 >
                   {/* Panel */}
                   <div
@@ -115,7 +119,7 @@ export function SiteHeader() {
                           className="h-1.5 w-1.5 shrink-0"
                           style={{ background: "var(--teal)" }}
                         />
-                        {child.label}
+                        <span className="truncate">{child.label}</span>
                       </Link>
                     ))}
                     {/* Footer: View All */}
@@ -176,8 +180,9 @@ export function SiteHeader() {
         id="mobile-menu"
         className="lg:hidden overflow-hidden transition-all duration-300"
         style={{
-          maxHeight: mobileOpen ? "900px" : "0px",
+          maxHeight: mobileOpen ? "90vh" : "0px",
           borderTop: mobileOpen ? "1px solid rgba(255,255,255,0.12)" : "none",
+          overflowY: mobileOpen ? "auto" : "hidden",
         }}
       >
         <nav
@@ -216,8 +221,9 @@ export function SiteHeader() {
                 <div
                   className="overflow-hidden transition-all duration-300"
                   style={{
-                    maxHeight: openSubmenu === item.href ? `${item.children.length * 52 + 52}px` : "0px",
+                    maxHeight: openSubmenu === item.href ? "60vh" : "0px",
                     background: "rgba(0,0,0,0.12)",
+                    overflowY: openSubmenu === item.href ? "auto" : "hidden",
                   }}
                 >
                   {item.children.map((child) => (

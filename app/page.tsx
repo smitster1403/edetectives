@@ -22,43 +22,36 @@ export default function Home() {
           <source src="/background_video_1.mp4" type="video/mp4" />
         </video>
 
-        {/* Dark overlay — brand-tinted gradient for readability */}
+        {/* Overlay for readability */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(135deg, rgba(20,34,48,0.88) 0%, rgba(26,46,66,0.72) 60%, rgba(26,46,66,0.55) 100%)",
+              "linear-gradient(120deg, rgba(20,34,48,0.92) 0%, rgba(26,46,66,0.72) 60%, rgba(26,46,66,0.55) 100%)",
           }}
         />
 
         {/* Content */}
         <div className="page-shell section-space relative z-10">
-          <div
-            className="grid lg:grid-cols-[1fr_300px] gap-10 lg:gap-16"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.15)", paddingBottom: "2.5rem" }}
-          >
-            {/* Left — mandate block */}
-            <div>
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20" style={{ minHeight: "38vh", borderBottom: "1px solid rgba(255,255,255,0.13)", paddingBottom: "2.5rem" }}>
+            {/* Left — main copy */}
+            <div className="flex-1 min-w-0">
               <span
-                className="kicker"
+                className="kicker mb-3 block"
                 style={{ color: "rgba(255,255,255,0.55)", borderColor: "rgba(255,255,255,0.2)" }}
               >
-                Corporate Risk &amp; Intelligence · Botswana
+                Corporate Risk & Intelligence · Botswana
               </span>
-
               <h1
-                className="section-title headline-balance mt-5 max-w-xl"
-                style={{ color: "#fff" }}
+                className="section-title headline-balance mt-2 mb-6 max-w-2xl"
+                style={{ color: "#fff", fontWeight: 700 }}
               >
-                Discreet Investigations and Cyber Defence for High-Stakes Environments
+                Discreet Investigations & Cyber Defence for High-Stakes Environments
               </h1>
-
-              <div
-                className="rule-line mt-8 mb-6"
-                style={{ borderColor: "rgba(255,255,255,0.18)" }}
-              />
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <p className="max-w-lg text-base md:text-lg leading-8 text-white/80 mb-8">
+                Trusted by institutions and leadership teams for evidence-led investigations, digital forensics, and incident response. We help you act with confidence when the stakes are highest.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className="btn-primary">
                   Request Consultation
                 </Link>
@@ -70,46 +63,37 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
             {/* Right — capability index */}
-            <div
-              className="flex flex-col lg:border-l"
-              style={{ borderColor: "rgba(255,255,255,0.15)", paddingLeft: undefined }}
-            >
-              <div className="lg:pl-6">
-                <p
-                  className="data-label mb-4"
-                  style={{ color: "var(--teal)" }}
+            <div className="hidden lg:flex flex-col border-l border-white/15 pl-8 min-w-[260px] max-w-[320px]">
+              <p className="data-label mb-4" style={{ color: "var(--teal)" }}>
+                Capability Index
+              </p>
+              {services.map((service, i) => (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="group flex items-center gap-3 py-2 px-2 -mx-2 transition-all duration-200 hover:bg-white/10"
+                  style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}
                 >
-                  Capability Index
-                </p>
-                {services.map((service, i) => (
-                  <Link
-                    key={service.slug}
-                    href={`/services/${service.slug}`}
-                    className="group flex items-center gap-3 py-2.5 px-2 -mx-2 transition-all duration-200 hover:bg-white/10"
-                    style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}
+                  <span
+                    className="shrink-0 w-9 font-mono text-[0.58rem] font-semibold tracking-widest transition-colors duration-200 group-hover:text-white"
+                    style={{ color: "var(--teal)" }}
                   >
-                    <span
-                      className="shrink-0 w-9 font-mono text-[0.58rem] font-semibold tracking-widest transition-colors duration-200 group-hover:text-white"
-                      style={{ color: "var(--teal)" }}
-                    >
-                      {capabilityCodes[i]}
-                    </span>
-                    <span
-                      className="flex-1 text-[0.8rem] font-medium leading-snug text-white/75 transition-colors duration-200 group-hover:text-white"
-                    >
-                      {service.title}
-                    </span>
-                    <span
-                      className="shrink-0 text-[0.65rem] font-mono opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0"
-                      style={{ color: "var(--teal)" }}
-                    >
-                      →
-                    </span>
-                  </Link>
-                ))}
-              </div>
+                    {capabilityCodes[i]}
+                  </span>
+                  <span
+                    className="flex-1 text-[0.8rem] font-medium leading-snug text-white/75 transition-colors duration-200 group-hover:text-white truncate"
+                  >
+                    {service.title}
+                  </span>
+                  <span
+                    className="shrink-0 text-[0.65rem] font-mono opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0"
+                    style={{ color: "var(--teal)" }}
+                  >
+                    →
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

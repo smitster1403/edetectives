@@ -43,9 +43,14 @@
 
 /* ─── Base ────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  font-size: 19.2px; /* 16px × 1.2 — remove to revert */
+  overflow-x: hidden;
+}
 
 body {
+  overflow-x: hidden;
   background: var(--bg-page);
   color: var(--text-body);
   font-family: var(--font-body), sans-serif;
@@ -59,7 +64,7 @@ body {
 .page-shell {
   margin-inline: auto;
   width: 100%;
-  max-width: 80rem;
+  max-width: min(80rem, 100vw);
   padding-inline: 1.5rem;
 }
 

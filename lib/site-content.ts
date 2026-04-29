@@ -425,6 +425,7 @@ export type NavItem = {
   label: string;
   href: string;
   children?: { label: string; href: string }[];
+  dropdownAlign?: "left" | "right";
 };
 
 export const navItems: NavItem[] = [
@@ -445,6 +446,7 @@ export const navItems: NavItem[] = [
   {
     label: "Insights",
     href: "/insights",
+    dropdownAlign: "right",
     children: insights.map((p) => ({ label: p.title, href: `/insights/${p.slug}` })),
   },
   { label: "Contact", href: "/contact" },
