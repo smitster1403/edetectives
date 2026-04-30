@@ -5,9 +5,19 @@ export function WhatsAppFab() {
     <a
       href={contact.whatsappHref}
       aria-label="Open WhatsApp chat"
-      className="fixed bottom-6 right-6 z-30 border border-emerald-600 bg-emerald-600 px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:border-[#39ff6a] hover:bg-[#22c55e] hover:text-white hover:shadow-[0_0_12px_3px_rgba(57,255,106,0.9),0_0_32px_10px_rgba(57,255,106,0.5),0_0_60px_22px_rgba(34,197,94,0.25)]"
+      className="fixed bottom-6 right-6 z-30 flex h-12 w-12 items-center justify-center rounded-full border border-emerald-600 bg-emerald-600 text-white shadow-md transition-all duration-300 hover:border-[#39ff6a] hover:bg-[#22c55e] hover:text-white hover:shadow-[0_0_12px_3px_rgba(57,255,106,0.9),0_0_32px_10px_rgba(57,255,106,0.5),0_0_60px_22px_rgba(34,197,94,0.25)]"
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      WhatsApp
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-6 w-6"
+        aria-hidden="true"
+      >
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.077 4.363.71.306 1.263.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 6.318h-.001a9.87 9.87 0 01-4.988-1.357l-.357-.213-3.711.974.993-3.617-.232-.372a9.86 9.86 0 01-1.51-5.19c.001-5.455 4.436-9.89 9.893-9.89 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.896 6.994c-.003 5.455-4.438 9.89-9.892 9.89zm8.413-18.304A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.26-1.646a11.88 11.88 0 005.78 1.474h.005c6.554 0 11.89-5.335 11.893-11.892a11.82 11.82 0 00-3.493-8.382z" />
+      </svg>
     </a>
   );
 }
