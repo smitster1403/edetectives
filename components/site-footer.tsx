@@ -4,7 +4,7 @@ import { contact, navItems } from "@/lib/site-content";
 export function SiteFooter() {
   return (
     <footer
-      className="mt-20"
+      className="mt-8"
       style={{ borderTop: "1px solid var(--accent-mid)", background: "var(--accent)" }}
     >
       <div className="mx-auto w-full max-w-7xl px-6 py-16">

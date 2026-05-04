@@ -37,7 +37,7 @@ export default function Home() {
             {/* Left — main copy */}
             <div className="flex-1 min-w-0">
               <span
-                className="kicker mb-3 block"
+                className="kicker mb-4 block"
                 style={{ color: "rgba(255,255,255,0.55)", borderColor: "rgba(255,255,255,0.2)" }}
               >
                 Corporate Risk & Intelligence · Botswana
@@ -46,10 +46,10 @@ export default function Home() {
                 className="section-title headline-balance mt-2 mb-6 max-w-2xl"
                 style={{ color: "#fff", fontWeight: 700 }}
               >
-                Discreet Investigations & Cyber Defence for High-Stakes Environments
+                Corporate Investigations, Digital Forensics & Cybersecurity for High-Stakes Environments
               </h1>
               <p className="max-w-lg text-base md:text-lg leading-8 text-white/80 mb-8">
-                Trusted by institutions and leadership teams for evidence-led investigations, digital forensics, and incident response. We help you act with confidence when the stakes are highest.
+                Trusted by institutions and leadership teams for expert corporate investigations, digital forensics, and cybersecurity services. We deliver evidence-led outcomes when the stakes are highest.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className="btn-primary">
@@ -65,7 +65,7 @@ export default function Home() {
             </div>
             {/* Right — capability index */}
             <div className="hidden lg:flex flex-col border-l border-white/15 pl-8 min-w-[260px] max-w-[320px]">
-              <p className="data-label mb-4" style={{ color: "var(--teal)" }}>
+              <p className="data-label mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>
                 Capability Index
               </p>
               {services.map((service, i) => (
@@ -77,7 +77,7 @@ export default function Home() {
                 >
                   <span
                     className="shrink-0 w-9 font-mono text-[0.58rem] font-semibold tracking-widest transition-colors duration-200 group-hover:text-white"
-                    style={{ color: "var(--teal)" }}
+                    style={{ color: "rgba(255,255,255,0.55)" }}
                   >
                     {capabilityCodes[i]}
                   </span>
@@ -88,7 +88,7 @@ export default function Home() {
                   </span>
                   <span
                     className="shrink-0 text-[0.65rem] font-mono opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0"
-                    style={{ color: "var(--teal)" }}
+                    style={{ color: "rgba(255,255,255,0.8)" }}
                   >
                     →
                   </span>
@@ -153,7 +153,7 @@ export default function Home() {
             </div>
 
             {/* Right — firm parameters */}
-            <div>
+            {/* <div>
               <p className="data-label mb-4">Firm Parameters</p>
               {[
                 { label: "Primary Base",     value: "Gaborone, Botswana" },
@@ -170,7 +170,8 @@ export default function Home() {
                   </dd>
                 </div>
               ))}
-            </div>
+            </div> */}
+
           </div>
         </div>
       </section>

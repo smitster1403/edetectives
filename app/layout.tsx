@@ -49,7 +49,7 @@ export default function RootLayout({
         <div className="flex min-h-full flex-col">
           <SiteHeader />
           <ScrollToTop />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-[3.8rem]">{children}</main>
           <SiteFooter />
           <WhatsAppFab />
         </div>

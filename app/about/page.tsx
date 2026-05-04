@@ -26,6 +26,7 @@ export default function AboutPage() {
       />
 
       <section className="section-space page-shell">
+
         <div className="grid gap-0 lg:grid-cols-[1.2fr_1fr]" style={{ border: "1px solid var(--border)" }}>
           <article className="card-surface tile p-7" style={{ border: "1px solid var(--border)" }}>
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Mission</h2>
@@ -52,7 +53,7 @@ export default function AboutPage() {
           </article>
         </div>
 
-        <div className="mt-6 grid gap-0 md:grid-cols-2" style={{ border: "1px solid var(--border)" }}>
+        <div className="mt-12 grid gap-0 md:grid-cols-2" style={{ border: "1px solid var(--border)" }}>
           <MediaPlaceholder
             label="Leadership Portrait Placeholder"
             detail="Replace with founder or executive portrait image."
@@ -64,18 +65,19 @@ export default function AboutPage() {
             ratio="portrait"
           />
         </div>
-      </section>
 
-      <section className="section-space page-shell pt-0">
-        <article className="card-surface tile p-7">
-          <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Leadership Snapshot</h2>
-          <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
-            E-Detectives operates with a multidisciplinary model spanning investigations,
-            forensic analysis, cybersecurity response, and governance support. Leadership
-            profiles, credentials, and full biographies are prepared for CMS-managed
-            publication during content onboarding.
-          </p>
-        </article>
+        <section className="pt-10">
+          <article className="card-surface tile p-7 mt-6">
+            <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Leadership Snapshot</h2>
+            <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
+              E-Detectives operates with a multidisciplinary model spanning investigations,
+              forensic analysis, cybersecurity response, and governance support. Leadership
+              profiles, credentials, and full biographies are prepared for CMS-managed
+              publication during content onboarding.
+            </p>
+          </article>
+        </section>
+
       </section>
     </>
   );

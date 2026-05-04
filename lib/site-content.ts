@@ -13,6 +13,7 @@ export type Solution = {
   tagline: string;
   description: string;
   linkedService: string;
+  externalUrl?: string;
 };
 
 export type Industry = {
@@ -214,6 +215,7 @@ export const solutions: Solution[] = [
     description:
       "ScamDetect helps organisations identify emerging fraud and scam patterns quickly, then coordinate controls, communications, and investigations before losses escalate.",
     linkedService: "Corporate Investigations",
+    externalUrl: "https://www.scamdetect.co.bw",
   },
   {
     name: "IRRaaS",
@@ -436,7 +438,11 @@ export const navItems: NavItem[] = [
     href: "/services",
     children: services.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
   },
-  { label: "Solutions", href: "/solutions" },
+  {
+    label: "Solutions",
+    href: "/solutions",
+    children: solutions.map((s) => ({ label: s.name, href: `/solutions#${s.slug}` })),
+  },
   {
     label: "Industries",
     href: "/industries",

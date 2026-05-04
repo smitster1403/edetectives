@@ -4,31 +4,34 @@
 :root {
   color-scheme: light;
 
-  /* Backgrounds — soft cloud white / fintech light */
+  /* Backgrounds — soft cloud white */
   --bg-page:       #F7F9FC;      /* soft cloud white                      */
   --bg-subtle:     #EFF3F7;      /* panel / section background            */
-  --bg-muted:      #E0F7FA;      /* subtle cyan highlight cells           */
+  --bg-muted:      #E8EFF8;      /* subtle blue highlight cells           */
 
   /* Borders — cool neutral */
   --border:        #D9E1E8;      /* standard divider                      */
   --border-strong: #B0C0CF;      /* hover / emphasis                      */
 
   /* Text — blue-gray hierarchy */
-  --text-heading:  #1E2E3D;      /* deep blue-gray heading                */
-  --text-body:     #2B3E50;      /* readable body copy                    */
-  --text-muted:    #546E7A;      /* secondary / field labels — AA-compliant */
+  --text-heading:  #0D1E2E;      /* deep navy heading                     */
+  --text-body:     #1E2E3D;      /* readable body copy                    */
+  --text-muted:    #456070;      /* secondary / field labels — AA-compliant */
   --text-faint:    #8FA8B8;      /* placeholders                          */
 
-  /* Brand blue — structure & hierarchy (headers, navbars) */
-  --accent:        #3A5A7A;      /* calm professional blue                */
-  --accent-mid:    #2F4A67;      /* darker hover state                    */
-  --accent-soft:   #E8EFF5;      /* very light blue tint                  */
-  --accent-border: #B8CEDF;      /* blue-tinted border                    */
+  /* Brand navy — structure & hierarchy (headers, navbars) */
+  --accent:        #0F2B4A;      /* deep navy                             */
+  --accent-mid:    #0A2138;      /* darker navy hover                     */
+  --accent-soft:   #E3EBF5;      /* very light navy tint                  */
+  --accent-border: #A0BCDA;      /* navy-tinted border                    */
 
-  /* Teal — interactive emphasis only (buttons, links, hover) */
-  --teal:          #2CB1BC;      /* modern teal CTA                       */
-  --teal-mid:      #239AA5;      /* teal hover                            */
-  --teal-soft:     #E0F7FA;      /* very light cyan background            */
+  /* Blue — interactive emphasis (buttons, links, hover) */
+  --teal:          #1854A6;      /* strong medium blue — replaces teal    */
+  --teal-mid:      #124389;      /* darker blue hover                     */
+  --teal-soft:     #E8F0FB;      /* very light blue background            */
+
+  /* Light blue — for use on dark/video backgrounds */
+  --accent-on-dark: #8BBEF0;
 
   /* Status colors (used sparingly) */
   --status-success: #4CAF50;
@@ -149,18 +152,18 @@ body {
   color: #ffffff;
   border: 1.5px solid var(--teal);
   transition: background 140ms ease, box-shadow 140ms ease, transform 100ms ease;
-  box-shadow: 0 2px 10px rgba(44, 177, 188, 0.30), 0 1px 3px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 10px rgba(24, 84, 166, 0.30), 0 1px 3px rgba(0,0,0,0.10);
   cursor: pointer;
 }
 .btn-primary:hover {
   background: var(--teal-mid);
   border-color: var(--teal-mid);
-  box-shadow: 0 5px 18px rgba(44, 177, 188, 0.40), 0 2px 6px rgba(0,0,0,0.10);
+  box-shadow: 0 5px 18px rgba(24, 84, 166, 0.40), 0 2px 6px rgba(0,0,0,0.10);
   transform: translateY(-1px);
 }
 .btn-primary:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(44, 177, 188, 0.25);
+  box-shadow: 0 2px 8px rgba(24, 84, 166, 0.25);
 }
 
 /* Outline: transparent bg, blue border */

@@ -6,10 +6,10 @@ type PageHeroProps = {
 
 export function PageHero({ kicker, title, summary }: PageHeroProps) {
   return (
-    <section className="page-shell pt-12 pb-8">
+    <section className="page-shell pt-12 pb-0">
 
       {/* Breadcrumb */}
-      <div className="flex items-center gap-4 pb-6">
+      <div className="flex items-center gap-4 pb-8">
         <span className="data-label">E-Detectives</span>
         <span className="data-label" style={{ color: "var(--border-strong)" }}>/</span>
         <span className="data-label" style={{ color: "var(--teal)" }}>{kicker}</span>
