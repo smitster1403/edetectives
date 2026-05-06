@@ -259,3 +259,13 @@ textarea:focus-visible {
     padding-block: 0.75rem;
   }
 }
+
+/* ─── Marquee / conveyor belt ────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-root:hover .marquee-track {
+  animation-play-state: paused;
+}

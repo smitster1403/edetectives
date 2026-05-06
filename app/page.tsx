@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contact, industries, services, solutions } from "@/lib/site-content";
+import { contact, industries, jurisdictions, services, solutions } from "@/lib/site-content";
 
 const capabilityCodes = ["INV", "FOR", "CYB", "INC", "SOC", "VET", "DAT", "TRN"];
 
@@ -40,7 +40,7 @@ export default function Home() {
                 className="kicker mb-4 block"
                 style={{ color: "rgba(255,255,255,0.55)", borderColor: "rgba(255,255,255,0.2)" }}
               >
-                Corporate Risk & Intelligence · Botswana
+                Corporate Risk & Intelligence · Southern Africa
               </span>
               <h1
                 className="section-title headline-balance mt-2 mb-6 max-w-2xl"
@@ -109,7 +109,7 @@ export default function Home() {
             { value: "08", label: "Core Services" },
             { value: "04", label: "Named Solutions" },
             { value: "06+", label: "Industry Sectors" },
-            { value: "BOTSWANA", label: "Primary Jurisdiction" },
+            { value: "15", label: "Active Jurisdictions" },
           ].map(({ value, label }) => (
             <div
               key={label}
@@ -157,7 +157,8 @@ export default function Home() {
               <p className="data-label mb-4">Firm Parameters</p>
               {[
                 { label: "Primary Base",     value: "Gaborone, Botswana" },
-                { label: "Operating Region", value: "Sub-Saharan Africa" },
+                { label: "Operating Region", value: "SADC Region & Uganda" },
+                { label: "Jurisdictions",    value: "15 Active Countries" },
                 { label: "Specialisation",   value: "Risk & Investigation" },
                 { label: "Operating Model",  value: "Confidentiality-First" },
                 { label: "Output Standard",  value: "Evidence-Led, Auditable" },
@@ -172,6 +173,74 @@ export default function Home() {
               ))}
             </div> */}
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── OPERATING JURISDICTIONS ──────────────────────────────────── */}
+      <section className="page-shell section-space">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <span className="kicker">Operating Jurisdictions</span>
+            <h2 className="section-title mt-3">Serving clients across Africa</h2>
+          </div>
+          {/* <p className="text-sm max-w-sm text-right hidden md:block" style={{ color: "var(--text-muted)" }}>
+            Active across 15 countries. Excludes Malawi and Mozambique.
+            Primary base: Gaborone, Botswana.
+          </p> */}
+        </div>
+        <div className="rule-line" />
+
+        {/* Conveyor belt — duplicated list creates seamless loop */}
+        <div
+          className="marquee-root mt-6 overflow-hidden"
+          style={{
+            WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            maskImage:        "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div
+            className="marquee-track"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "nowrap",
+              gap: "1.5rem",
+              width: "max-content",
+              animation: "marquee 40s linear infinite",
+            }}
+          >
+            {[...jurisdictions, ...jurisdictions].map((j, i) => (
+              <div
+                key={`${j.code}-${i}`}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  width: "5.5rem",
+                  flexShrink: 0,
+                }}
+              >
+                <div style={{ width: "100%", aspectRatio: "3/2", border: "1px solid var(--border)", overflow: "hidden" }}>
+                  <img
+                    src={`/flags/${j.code.toLowerCase()}.svg`}
+                    alt={`${j.name} flag`}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                  />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.125rem" }}>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.6rem", color: "var(--text-muted)", textAlign: "center", lineHeight: 1.3 }}>
+                    {j.name}
+                  </span>
+                  {j.primary && (
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.5rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--teal)" }}>
+                      Base
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -251,6 +320,16 @@ export default function Home() {
                 <p className="text-base leading-7" style={{ color: "var(--text-muted)" }}>
                   {solution.description}
                 </p>
+                {solution.externalUrl && (
+                  <a
+                    href={solution.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost self-start"
+                  >
+                    Visit {solution.name} →
+                  </a>
+                )}
               </article>
             ))}
           </div>

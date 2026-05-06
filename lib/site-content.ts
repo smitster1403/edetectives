@@ -42,12 +42,36 @@ export type CaseStudy = {
   serviceTags: string[];
 };
 
+export type Jurisdiction = {
+  code: string;
+  name: string;
+  primary?: boolean;
+};
+
+export const jurisdictions: Jurisdiction[] = [
+  { code: "BW", name: "Botswana",     primary: true },
+  { code: "ZA", name: "South Africa" },
+  { code: "ZW", name: "Zimbabwe" },
+  { code: "ZM", name: "Zambia" },
+  { code: "NA", name: "Namibia" },
+  { code: "TZ", name: "Tanzania" },
+  { code: "UG", name: "Uganda" },
+  { code: "AO", name: "Angola" },
+  { code: "LS", name: "Lesotho" },
+  { code: "SZ", name: "Eswatini" },
+  { code: "MU", name: "Mauritius" },
+  { code: "MG", name: "Madagascar" },
+  { code: "SC", name: "Seychelles" },
+  { code: "KM", name: "Comoros" },
+  { code: "CD", name: "DR Congo" },
+];
+
 export const contact = {
-  phoneDisplay: "+267 390 1000",
-  phoneHref: "tel:+2673901000",
-  whatsappDisplay: "+267 71 000 000",
-  whatsappHref: "https://wa.me/26771000000",
-  email: "confidential@e-detectives.co.bw",
+  phoneDisplay: "+267 311 1171",
+  phoneHref: "tel:+2673111171",
+  whatsappDisplay: "+267 73 233 490",
+  whatsappHref: "https://wa.me/26773233490",
+  email: "info@edetectives.co.bw",
   address: "Gaborone, Botswana",
   businessHours: "Mon-Fri, 08:00-17:00",
 };
