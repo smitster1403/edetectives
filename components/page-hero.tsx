@@ -6,7 +6,7 @@ type PageHeroProps = {
 
 export function PageHero({ kicker, title, summary }: PageHeroProps) {
   return (
-    <section className="page-shell pt-12 pb-0">
+    <section className="page-hero page-shell pt-12 pb-0">
 
       {/* Breadcrumb */}
       <div className="flex items-center gap-4 pb-8">

@@ -77,6 +77,18 @@ body {
   .section-space { padding-block: 4.5rem; }
 }
 
+/* Tighter top padding on the first section after a PageHero */
+.page-hero + section,
+.page-hero + div > section:first-child {
+  padding-block-start: 1.5rem;
+}
+@media (min-width: 768px) {
+  .page-hero + section,
+  .page-hero + div > section:first-child {
+    padding-block-start: 2rem;
+  }
+}
+
 /* ─── Typography ─────────────────────────────────────────────────────── */
 .section-title {
   font-family: var(--font-heading), sans-serif;
