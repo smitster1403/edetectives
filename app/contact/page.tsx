@@ -25,7 +25,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
   return (
     <>
-      <section className="page-shell pt-12 pb-2">
+      <section className="page-hero page-shell pt-12 pb-2">
         <span className="kicker">Contact</span>
         <h1 className="section-title mt-4">Request a confidential consultation</h1>
         <p className="mt-4 max-w-3xl text-base leading-8" style={{ color: "var(--text-muted)" }}>
