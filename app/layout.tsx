@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { Analytics } from "@vercel/analytics/next"
 
 const manrope = Manrope({
   variable: "--font-body",
@@ -54,6 +55,7 @@ export default function RootLayout({
           <WhatsAppFab />
         </div>
       </body>
+      <Analytics/>
     </html>
   );
 }
