@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import teamImg from "../../public/edetectives_team.jpeg";
 import { PageHero } from "@/components/page-hero";
-import { MediaPlaceholder } from "@/components/media-placeholder";
+import { LeaderCards } from "@/components/leader-cards";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -25,8 +27,8 @@ export default function AboutPage() {
         summary="E-Detectives is a Botswana-based specialist partner for corporate investigations, digital forensics, cybersecurity, and compliance-facing support. We combine investigative discipline with technical capability so clients can act on trusted facts."
       />
 
+      {/* Mission & Values */}
       <section className="section-space page-shell">
-
         <div className="grid gap-0 lg:grid-cols-[1.2fr_1fr]" style={{ border: "1px solid var(--border)" }}>
           <article className="card-surface tile p-7" style={{ border: "1px solid var(--border)" }}>
             <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Mission</h2>
@@ -52,32 +54,41 @@ export default function AboutPage() {
             </ul>
           </article>
         </div>
+      </section>
 
-        <div className="mt-12 grid gap-0 md:grid-cols-2" style={{ border: "1px solid var(--border)" }}>
-          <MediaPlaceholder
-            label="Leadership Portrait Placeholder"
-            detail="Replace with founder or executive portrait image."
-            ratio="portrait"
-          />
-          <MediaPlaceholder
-            label="Operations Environment Placeholder"
-            detail="Replace with office, forensic lab, or SOC environment image."
-            ratio="portrait"
+      {/* Divider */}
+      <div className="rule-line" />
+
+      {/* Company Leadership */}
+      <section className="section-space page-shell">
+        <h2 className="text-xl font-semibold mb-8 text-center" style={{ color: "var(--text-heading)" }}>Company Leadership</h2>
+        <LeaderCards />
+      </section>
+
+      {/* Divider */}
+      <div className="rule-line" />
+
+      {/* The Team */}
+      <section className="section-space page-shell">
+        <h2 className="text-xl font-semibold mb-8 text-center" style={{ color: "var(--text-heading)" }}>The Team</h2>
+        <div className="flex justify-center">
+          <Image
+            src={teamImg}
+            alt="The E-Detectives team"
+            style={{ maxHeight: "60vh", width: "auto" }}
+            priority
           />
         </div>
-
-        <section className="pt-10">
-          <article className="card-surface tile p-7 mt-6">
-            <h2 className="text-xl font-semibold" style={{ color: "var(--text-heading)" }}>Leadership Snapshot</h2>
-            <p className="mt-3 text-base leading-7" style={{ color: "var(--text-muted)" }}>
-              E-Detectives operates with a multidisciplinary model spanning investigations,
-              forensic analysis, cybersecurity response, and governance support. Leadership
-              profiles, credentials, and full biographies are prepared for CMS-managed
-              publication during content onboarding.
-            </p>
-          </article>
-        </section>
-
+        <div className="mt-8 text-center">
+          <p className="text-lg font-semibold leading-snug" style={{ color: "var(--text-heading)" }}>
+            One team. Unwavering standards.
+          </p>
+          <p className="mt-3 text-sm leading-7 max-w-2xl mx-auto" style={{ color: "var(--text-muted)" }}>
+            Every investigation, every engagement, every finding — delivered with the discretion,
+            rigour, and accountability that institutions depend on. We do not cut corners.
+            We follow the evidence.
+          </p>
+        </div>
       </section>
     </>
   );

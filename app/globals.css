@@ -281,3 +281,10 @@ textarea:focus-visible {
 .marquee-root:hover .marquee-track {
   animation-play-state: paused;
 }
+
+/* ─── Custom scrollbar ───────────────────────────────────────────────── */
+.custom-scrollbar { scrollbar-width: thin; scrollbar-color: var(--accent-border) var(--bg-subtle); }
+.custom-scrollbar::-webkit-scrollbar { width: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: var(--bg-subtle); }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--accent-border); border-radius: 99px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--teal); }
