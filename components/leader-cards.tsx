@@ -43,12 +43,13 @@ export function LeaderCards() {
             className={`flex flex-col md:flex-row ${imageLeft ? "" : "md:flex-row-reverse"}`}
           >
             {/* Photo */}
-            <div className="relative shrink-0 w-full md:w-52" style={{ minHeight: "18rem" }}>
+            <div className="shrink-0 w-full md:w-80">
               <Image
                 src={leader.imageSrc}
                 alt={leader.name}
-                fill
-                className="object-cover object-top"
+                width={400}
+                height={600}
+                style={{ width: "100%", height: "auto" }}
               />
             </div>
 
