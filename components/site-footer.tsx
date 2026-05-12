@@ -19,11 +19,11 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="p-8" style={{ borderRight: "1px solid rgba(255,255,255,0.15)" }}>
             <Image
-              src="/ED logo black.png"
+              src="/ED logo transparent.png"
               alt="E-Detectives"
               width={140}
               height={70}
-              style={{ height: "3rem", width: "auto", mixBlendMode: "screen" }}
+              style={{ height: "3rem", width: "auto" }}
             />
             <p className="mt-5 text-base leading-7" style={{ color: "rgba(255,255,255,0.65)" }}>
               Discreet, evidence-driven investigations, intelligence gathering,

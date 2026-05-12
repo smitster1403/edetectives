@@ -76,7 +76,7 @@ export function SiteHeader() {
           className="self-stretch flex items-center overflow-hidden"
         >
           <Image
-            src="/ED logo black.png"
+            src="/ED logo transparent.png"
             alt="E-Detectives"
             width={120}
             height={60}
@@ -84,7 +84,6 @@ export function SiteHeader() {
               height: scrolled ? "2.125rem" : "2.875rem",
               width: "auto",
               transition: "height 250ms ease",
-              mixBlendMode: "screen",
             }}
             priority
           />
