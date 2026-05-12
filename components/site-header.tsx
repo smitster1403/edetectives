@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navItems } from "@/lib/site-content";
@@ -72,42 +73,21 @@ export function SiteHeader() {
         {/* Brand lockup */}
         <Link
           href="/"
-          className="flex items-center gap-4"
-          style={{ paddingBlock: scrolled ? "0.5rem" : "0.875rem", transition: "padding 250ms ease" }}
+          className="self-stretch flex items-center overflow-hidden"
         >
-          <div
-            className="inline-flex shrink-0 items-center justify-center text-[0.65rem] font-semibold tracking-wider"
+          <Image
+            src="/ED logo black.png"
+            alt="E-Detectives"
+            width={120}
+            height={60}
             style={{
-              background: "var(--teal)",
-              color: "#ffffff",
-              fontFamily: "var(--font-mono)",
-              width: scrolled ? "1.75rem" : "2rem",
-              height: scrolled ? "1.75rem" : "2rem",
-              transition: "width 250ms ease, height 250ms ease",
+              height: scrolled ? "2.125rem" : "2.875rem",
+              width: "auto",
+              transition: "height 250ms ease",
+              mixBlendMode: "screen",
             }}
-            aria-label="E-Detectives logo"
-          >
-            E/D
-          </div>
-          <div>
-            <p
-              className="text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-white"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              E-Detectives
-            </p>
-            <p
-              className="data-label"
-              style={{
-                color: "rgba(255,255,255,0.55)",
-                maxHeight: scrolled ? "0" : "1.5rem",
-                opacity: scrolled ? 0 : 1,
-                overflow: "hidden",
-                marginTop: scrolled ? 0 : "0.125rem",
-                transition: "max-height 250ms ease, opacity 200ms ease, margin-top 250ms ease",
-              }}
-            >Corporate Risk · Intelligence · Security</p>
-          </div>
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}

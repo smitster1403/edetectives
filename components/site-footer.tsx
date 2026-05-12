@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { contact, navItems } from "@/lib/site-content";
 
 export function SiteFooter() {
@@ -17,23 +18,13 @@ export function SiteFooter() {
 
           {/* Brand */}
           <div className="p-8" style={{ borderRight: "1px solid rgba(255,255,255,0.15)" }}>
-            <div className="flex items-center gap-3">
-              <div
-                className="inline-flex h-8 w-8 items-center justify-center text-[0.65rem] font-semibold tracking-wider text-white"
-                style={{ background: "var(--teal)", fontFamily: "var(--font-mono)" }}
-              >
-                E/D
-              </div>
-              <div>
-                <p
-                  className="text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-white"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  E-Detectives
-                </p>
-                <p className="data-label mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>Corporate Risk · Intelligence</p>
-              </div>
-            </div>
+            <Image
+              src="/ED logo black.png"
+              alt="E-Detectives"
+              width={140}
+              height={70}
+              style={{ height: "3rem", width: "auto", mixBlendMode: "screen" }}
+            />
             <p className="mt-5 text-base leading-7" style={{ color: "rgba(255,255,255,0.65)" }}>
               Discreet, evidence-driven investigations, intelligence gathering,
               digital forensics, cybersecurity, and security operations support
