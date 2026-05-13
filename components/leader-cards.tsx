@@ -24,6 +24,13 @@ const leaders: Leader[] = [
     imageSrc: "/leaders/Dr.Lefoane.jpeg",
   },
   {
+    id: "bongani",
+    name: "Bongani Milton",
+    title: "Consultant Forensic Investigator – Fraud & Economic Crime",
+    bio: "Bongani Milton is an experienced forensic investigator specializing in corporate fraud, insurance fraud, corruption, financial crime, and cybercrime-related investigations. He has served with the Botswana Police Service as a specialized fraud investigator and later with the Directorate on Corruption and Economic Crime (DCEC), where he handled financial crime and corruption matters.\n\nHe has also conducted insurance and corporate fraud investigations across Botswana, South Africa, Zimbabwe, and Zambia, and is the founder of Milton Forensics. At E-Detectives, Bongani strengthens the Investigation Unit with deep expertise in evidence analysis, interviewing, fraud detection, intelligence gathering, and court-ready investigative reporting.",
+    imageSrc: "/leaders/Bongani.jpeg",
+  },
+  {
     id: "themba",
     name: "Themba Phillimon",
     title: "Consultant Investigator – Corporate Investigations & Intelligence",
