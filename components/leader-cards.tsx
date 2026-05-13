@@ -40,7 +40,7 @@ export function LeaderCards() {
         return (
           <div
             key={leader.id}
-            className={`flex flex-col md:flex-row ${imageLeft ? "" : "md:flex-row-reverse"}`}
+            className={`flex flex-col md:flex-row md:items-start ${imageLeft ? "" : "md:flex-row-reverse"}`}
           >
             {/* Photo */}
             <div className="shrink-0 w-full md:w-80">
@@ -55,7 +55,7 @@ export function LeaderCards() {
 
             {/* Bio */}
             <div
-              className="flex flex-col justify-center p-6 md:p-8"
+              className="flex flex-col justify-start px-6 pb-6 md:px-8 md:pb-8"
               style={{ flex: 1 }}
             >
               <h3 className="text-xl font-semibold leading-snug" style={{ color: "var(--text-heading)" }}>
