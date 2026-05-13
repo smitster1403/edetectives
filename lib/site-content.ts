@@ -472,7 +472,7 @@ export const navItems: NavItem[] = [
     href: "/industries",
     children: industries.map((i) => ({ label: i.name, href: `/industries/${i.slug}` })),
   },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Engagements", href: "/case-studies" },
   {
     label: "Insights",
     href: "/insights",
